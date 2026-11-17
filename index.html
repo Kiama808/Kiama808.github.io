@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kelvin Kiama Muriithi — Software Engineering &amp; Developer Portfolio</title>
+  <meta name="description" content="Developer portfolio of Kelvin Kiama Muriithi — Moringa School Software Engineering Graduate (2024) & Applied Computer Technology Student at USIU-Africa in Nairobi, Kenya." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Times New Roman"', 'Times', 'serif'],
+            sans: ['Calibri', '"Segoe UI"', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              950: '#070c18',
+              900: '#0c1426',
+              850: '#111c33',
+              800: '#162440',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Subtle architectural dot grid for the Hero backdrop */
+    .hero-grid {
+      background-image: radial-gradient(rgba(148, 163, 184, 0.13) 1px, transparent 1px);
+      background-size: 26px 26px;
+    }
+
+    /* Custom subtle scrollbars for deep-navy theme */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070c18;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+  </style>
+</head>
+<body class="bg-navy-950 text-slate-200 font-sans antialiased selection:bg-sky-500/25 selection:text-sky-300 overflow-x-hidden">
+
+  <!-- ==================== 1. STICKY TOP NAVIGATION BAR ==================== -->
+  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-navy-950/90 border-b border-slate-800/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <!-- Brand Monogram & Name -->
+        <a href="#top" class="flex items-center gap-3 group focus:outline-none">
+          <span class="w-10 h-10 rounded-xl bg-sky-500/15 border border-sky-400/30 text-sky-300 font-serif font-bold text-base flex items-center justify-center tracking-wider shadow-sm group-hover:scale-105 transition-transform">
+            KK
+          </span>
+          <div class="flex flex-col">
+            <span class="font-serif font-bold text-lg sm:text-xl tracking-tight text-white leading-tight">
+              Kelvin Kiama
+            </span>
+            <span class="text-xs text-slate-400 hidden sm:inline">
+              Software Developer &bull; Nairobi, Kenya
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav aria-label="Primary Navigation" class="hidden md:flex items-center gap-1 lg:gap-2">
+          <a href="#about" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-navy-800/70 transition-colors">About</a>
+          <a href="#experience" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-navy-800/70 transition-colors">Experience</a>
+          <a href="#projects" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-navy-800/70 transition-colors">Projects</a>
+          <a href="#skills-education" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-navy-800/70 transition-colors">Skills &amp; Education</a>
+          <a href="#contact" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-navy-800/70 transition-colors">Contact</a>
+        </nav>
+
+        <!-- Primary CTA & Mobile Menu Button (No Light/Dark Mode Switcher) -->
+        <div class="flex items-center gap-2.5">
+          <a
+            href="#contact"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-sky-500 text-navy-950 hover:bg-sky-400 shadow-sm shadow-sky-500/10 transition-all active:scale-95"
+          >
+            <span>Get in Touch</span>
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+
+          <!-- Mobile Hamburger Button -->
+          <button
+            id="mobileMenuBtn"
+            type="button"
+            aria-label="Open Navigation Menu"
+            aria-expanded="false"
+            class="md:hidden p-3 rounded-xl border border-slate-800 bg-navy-900 text-slate-200 hover:bg-navy-800 transition-colors"
+          >
+            <svg id="menuOpenIcon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg id="menuCloseIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobileMenu" class="hidden md:hidden pb-4 pt-2 border-t border-slate-800 space-y-1">
+        <a href="#about" class="mobile-nav-link block px-3.5 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-navy-800">About</a>
+        <a href="#experience" class="mobile-nav-link block px-3.5 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-navy-800">Experience</a>
+        <a href="#projects" class="mobile-nav-link block px-3.5 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-navy-800">Projects</a>
+        <a href="#skills-education" class="mobile-nav-link block px-3.5 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-navy-800">Skills &amp; Education</a>
+        <a href="#contact" class="mobile-nav-link block px-3.5 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-navy-800">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ==================== 2. HERO & ABOUT SECTION (#about) ==================== -->
+    <section id="about" class="relative scroll-mt-20 border-b border-slate-800/80 overflow-hidden">
+      <!-- Deep Navy Ambient Glow & Subtle Dot Grid -->
+      <div class="absolute inset-0 hero-grid pointer-events-none"></div>
+      <div class="absolute -top-28 right-0 w-[28rem] h-[28rem] bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-0 -left-24 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
+        <div class="max-w-4xl">
+          <!-- Status Badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-xs sm:text-sm font-medium mb-6">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span>Open to Software Engineering &amp; Junior Developer Roles</span>
+          </div>
+
+          <!-- Main Heading in Times New Roman -->
+          <h1 class="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-white leading-[1.12] mb-4">
+            Kelvin Kiama Muriithi
+          </h1>
+
+          <!-- Subtitle in Calibri -->
+          <p class="text-lg sm:text-xl font-semibold text-sky-400 mb-5 leading-snug">
+            Moringa School Software Engineering Graduate (2024) &amp; Applied Computer Technology Student at USIU-Africa
+          </p>
+
+          <!-- Concise Bio -->
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl mb-8">
+            Software developer based in Nairobi, Kenya, with hands-on experience designing and shipping responsive institutional web platforms, native Android applications (Kotlin/XML, API 34), and automated financial data pipelines (Google Apps Script).
+          </p>
+
+          <!-- Direct Contact & Profile Pills with One-Click Copy Buttons -->
+          <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-9">
+            <!-- Email Pill -->
+            <div class="inline-flex items-center rounded-xl bg-navy-900 border border-slate-800 shadow-sm overflow-hidden">
+              <a
+                href="mailto:kelvinmurithi2005@gmail.com"
+                class="inline-flex items-center gap-2 pl-3.5 pr-2.5 py-2.5 text-sm font-medium text-slate-200 hover:text-sky-300 transition-colors"
+              >
+                <svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                <span>kelvinmurithi2005@gmail.com</span>
+              </a>
+              <button
+                type="button"
+                onclick="copyText('kelvinmurithi2005@gmail.com', 'Email copied: kelvinmurithi2005@gmail.com')"
+                class="px-3 py-2.5 border-l border-slate-800 text-slate-400 hover:text-white hover:bg-navy-800 transition-colors"
+                title="Copy email address"
+                aria-label="Copy email address"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Phone Pill -->
+            <div class="inline-flex items-center rounded-xl bg-navy-900 border border-slate-800 shadow-sm overflow-hidden">
+              <a
+                href="tel:+254713522769"
+                class="inline-flex items-center gap-2 pl-3.5 pr-2.5 py-2.5 text-sm font-medium text-slate-200 hover:text-sky-300 transition-colors"
+              >
+                <svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>+254 713 522 769</span>
+              </a>
+              <button
+                type="button"
+                onclick="copyText('+254 713 522 769', 'Phone copied: +254 713 522 769')"
+                class="px-3 py-2.5 border-l border-slate-800 text-slate-400 hover:text-white hover:bg-navy-800 transition-colors"
+                title="Copy phone number"
+                aria-label="Copy phone number"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- GitHub Pill -->
+            <div class="inline-flex items-center rounded-xl bg-navy-900 border border-slate-800 shadow-sm overflow-hidden">
+              <a
+                href="https://github.com/Kiama808"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 pl-3.5 pr-2.5 py-2.5 text-sm font-medium text-slate-200 hover:text-sky-300 transition-colors"
+              >
+                <svg class="w-4 h-4 text-slate-300 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                </svg>
+                <span>github.com/Kiama808</span>
+              </a>
+              <button
+                type="button"
+                onclick="copyText('https://github.com/Kiama808', 'GitHub URL copied to clipboard!')"
+                class="px-3 py-2.5 border-l border-slate-800 text-slate-400 hover:text-white hover:bg-navy-800 transition-colors"
+                title="Copy GitHub URL"
+                aria-label="Copy GitHub URL"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Location Pill -->
+            <span class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-navy-900 border border-slate-800 text-sm font-medium text-slate-300 shadow-sm">
+              <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Nairobi, Kenya</span>
+            </span>
+          </div>
+
+          <!-- Hero Primary CTA Buttons -->
+          <div class="flex flex-wrap items-center gap-3.5">
+            <a
+              href="#projects"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-sky-500 text-navy-950 font-semibold text-sm sm:text-base shadow-md shadow-sky-500/15 hover:bg-sky-400 transition-all"
+            >
+              <span>View Engineering Projects</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+              </svg>
+            </a>
+            <a
+              href="https://github.com/Kiama808"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-navy-900 text-white border border-slate-700 font-semibold text-sm sm:text-base hover:bg-navy-850 hover:border-slate-600 transition-all"
+            >
+              <span>GitHub Profile</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. WORK & FIELD EXPERIENCE TIMELINE (#experience) ==================== -->
+    <section id="experience" class="scroll-mt-20 py-16 sm:py-20 border-b border-slate-800/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12">
+          <p class="text-xs font-bold uppercase tracking-widest text-sky-400 mb-2">
+            Track Record &amp; Field Delivery
+          </p>
+          <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">
+            Work &amp; Field Experience
+          </h2>
+        </div>
+
+        <!-- Vertical Timeline -->
+        <div class="relative pl-6 sm:pl-8 border-l-2 border-slate-800 space-y-8">
+          <!-- Experience Item 1 -->
+          <article class="relative group">
+            <span class="absolute -left-[33px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-sky-500 ring-4 ring-navy-950"></span>
+            <div class="p-6 sm:p-7 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm hover:border-sky-500/40 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                <div>
+                  <h3 class="font-serif font-bold text-xl text-white">
+                    Web Developer &amp; Digital Solutions Consultant (Project-Based)
+                  </h3>
+                  <p class="text-sm font-semibold text-sky-400">
+                    The Governor Creek School — Kajiweni-Mshomoroni, Mombasa
+                  </p>
+                </div>
+                <span class="inline-flex items-center self-start px-3 py-1 rounded-full text-xs font-semibold bg-navy-800 text-slate-300 border border-slate-700 shrink-0">
+                  2026
+                </span>
+              </div>
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                Architected and built a unified institutional web platform (HTML, CSS, JavaScript) serving parents, NGOs, and investors across Admissions, Academics, and Partnerships workflows with zero-cost GitHub Pages hosting and serverless form routing.
+              </p>
+            </div>
+          </article>
+
+          <!-- Experience Item 2 -->
+          <article class="relative group">
+            <span class="absolute -left-[33px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-slate-600 group-hover:bg-sky-500 transition-colors ring-4 ring-navy-950"></span>
+            <div class="p-6 sm:p-7 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm hover:border-sky-500/40 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                <div>
+                  <h3 class="font-serif font-bold text-xl text-white">
+                    Digital Presence &amp; Operations Contributor
+                  </h3>
+                  <p class="text-sm font-semibold text-sky-400">
+                    Kenyan SMEs &amp; Property Operations — Nairobi
+                  </p>
+                </div>
+                <span class="inline-flex items-center self-start px-3 py-1 rounded-full text-xs font-semibold bg-navy-800 text-slate-300 border border-slate-700 shrink-0">
+                  2025 – 2026
+                </span>
+              </div>
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                Audited and verified digital listings and local search metadata on Google Maps for Kenyan businesses (<span class="font-semibold text-white">Countrys Car Wash</span>, <span class="font-semibold text-white">East African Deking Interior Decor</span>), and managed structured tenant billing schedules, incoming rental payment tracking, and maintenance coordination.
+              </p>
+            </div>
+          </article>
+
+          <!-- Experience Item 3 -->
+          <article class="relative group">
+            <span class="absolute -left-[33px] sm:-left-[41px] top-1.5 w-4 h-4 rounded-full bg-slate-600 group-hover:bg-sky-500 transition-colors ring-4 ring-navy-950"></span>
+            <div class="p-6 sm:p-7 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm hover:border-sky-500/40 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                <div>
+                  <h3 class="font-serif font-bold text-xl text-white">
+                    Community Infrastructure Outreach Coordinator
+                  </h3>
+                  <p class="text-sm font-semibold text-sky-400">
+                    Mshomoroni, Mombasa
+                  </p>
+                </div>
+                <span class="inline-flex items-center self-start px-3 py-1 rounded-full text-xs font-semibold bg-navy-800 text-slate-300 border border-slate-700 shrink-0">
+                  August 2025
+                </span>
+              </div>
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                Coordinated with WaterAid America via Tiltify to evaluate expanding community water borehole infrastructure in Mombasa.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. FILTERABLE SOFTWARE ENGINEERING PROJECTS (#projects) ==================== -->
+    <section id="projects" class="scroll-mt-20 py-16 sm:py-20 border-b border-slate-800/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-widest text-sky-400 mb-2">
+              Selected Engineering Work
+            </p>
+            <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white">
+              Software Engineering Projects
+            </h2>
+          </div>
+
+          <!-- Filter Tabs -->
+          <div role="tablist" aria-label="Filter projects by category" class="inline-flex flex-wrap gap-2 p-1.5 rounded-2xl bg-navy-900 border border-slate-800 self-start">
+            <button
+              type="button"
+              data-filter="All"
+              class="filter-btn active px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-sky-500 text-navy-950 shadow-sm"
+            >
+              All
+            </button>
+            <button
+              type="button"
+              data-filter="Web"
+              class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all text-slate-300 hover:text-white"
+            >
+              Web
+            </button>
+            <button
+              type="button"
+              data-filter="Android"
+              class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all text-slate-300 hover:text-white"
+            >
+              Android
+            </button>
+            <button
+              type="button"
+              data-filter="Automation"
+              class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all text-slate-300 hover:text-white"
+            >
+              Automation
+            </button>
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <!-- Project 1: The Governor Creek School Web Platform [Web] -->
+          <article
+            data-category="Web"
+            class="project-card flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm hover:shadow-lg hover:border-sky-500/50 transition-all"
+          >
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-500/15 text-sky-300 border border-sky-500/25">
+                  Web
+                </span>
+                <span class="text-xs font-medium text-slate-400">2026</span>
+              </div>
+
+              <h3 class="font-serif font-bold text-2xl text-white mb-3">
+                The Governor Creek School Web Platform
+              </h3>
+
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                Unified responsive institutional portal for a Mombasa school targeting parents, NGOs, and investors with multi-step admissions, academics, and partnership workflows deployed at zero hosting cost on GitHub Pages.
+              </p>
+            </div>
+
+            <div>
+              <!-- Tech Tags -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">HTML5</span>
+                <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">CSS3</span>
+                <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">JavaScript</span>
+                <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">GitHub Pages</span>
+              </div>
+
+              <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                <button
+                  type="button"
+                  onclick="openCaseStudy('governor-creek')"
+                  class="inline-flex items-center gap-2 py-1 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors"
+                >
+                  <span>View Case Study</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </button>
+                <a
+                  href="https://github.com/Kiama808"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xs font-medium text-slate-400 hover:text-white transition-colors"
+                >
+                  github.com/Kiama808 &nearr;
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Automated NSE Stock Portfolio Tracker [Automation] -->
+          <article
+            data-category="Automation"
+            class="project-card flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm hover:shadow-lg hover:border-sky-500/50 transition-all"
+          >
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/25">
+                  Automation
+                </span>
+                <span class="text-xs font-medium text-slate-400">May 2026</span>
+              </div>
+
+              <h3 class="font-serif font-bold text-2xl text-white mb-3">
+                Automated NSE Stock Portfolio Tracker
+              </h3>
+
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                Automated portfolio tracking pipeline retrieving live Nairobi Securities Exchange (NSE) equity prices directly into Google Sheets and dispatching scheduled weekly HTML email performance reports.
+              </p>
+            </div>
+
+            <div>
+              <!-- Tech Tags -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">Google Apps Script</span>
+                <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">Google Sheets</span>
+                <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">HTML</span>
+              </div>
+
+              <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                <button
+                  type="button"
+                  onclick="openCaseStudy('nse-tracker')"
+                  class="inline-flex items-center gap-2 py-1 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors"
+                >
+                  <span>View Case Study</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </button>
+                <a
+                  href="https://github.com/Kiama808"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xs font-medium text-slate-400 hover:text-white transition-colors"
+                >
+                  github.com/Kiama808 &nearr;
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Native Android Shopping & Unit Price Calculator [Android] -->
+          <article
+            data-category="Android"
+            class="project-card flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm hover:shadow-lg hover:border-sky-500/50 transition-all"
+          >
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/25">
+                  Android
+                </span>
+                <span class="text-xs font-medium text-slate-400">August – September 2026</span>
+              </div>
+
+              <h3 class="font-serif font-bold text-2xl text-white mb-3">
+                Native Android Shopping &amp; Unit Price Calculator
+              </h3>
+
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                Native Android mobile utility built in Kotlin and XML (Android Studio API 34) for real-time unit price comparison across varying package sizes, defensive input validation, and itemized shopping basket totals.
+              </p>
+            </div>
+
+            <div>
+              <!-- Tech Tags -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">Kotlin</span>
+                <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">XML</span>
+                <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">Android Studio API 34</span>
+              </div>
+
+              <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                <button
+                  type="button"
+                  onclick="openCaseStudy('android-calculator')"
+                  class="inline-flex items-center gap-2 py-1 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors"
+                >
+                  <span>View Case Study</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </button>
+                <a
+                  href="https://github.com/Kiama808"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xs font-medium text-slate-400 hover:text-white transition-colors"
+                >
+                  github.com/Kiama808 &nearr;
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: Interactive Browser Apps & Audio-Visualizers — NEON BUZZ [Web] -->
+          <article
+            data-category="Web"
+            class="project-card flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm hover:shadow-lg hover:border-sky-500/50 transition-all"
+          >
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-500/15 text-sky-300 border border-sky-500/25">
+                  Web
+                </span>
+                <span class="text-xs font-medium text-slate-400">May – November 2026</span>
+              </div>
+
+              <h3 class="font-serif font-bold text-2xl text-white mb-3">
+                Interactive Browser Apps &amp; Audio-Visualizers — NEON BUZZ
+              </h3>
+
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                Mobile-first browser applications featuring stateful pass-and-play turn management, live leaderboards, synthesized Web Audio API sound effects, and music-synced pixel-art HTML5 Canvas visualizers.
+              </p>
+            </div>
+
+            <div>
+              <!-- Tech Tags -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">JavaScript</span>
+                <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">HTML5 Canvas</span>
+                <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-300 border border-slate-700">Web Audio API</span>
+              </div>
+
+              <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                <button
+                  type="button"
+                  onclick="openCaseStudy('neon-buzz')"
+                  class="inline-flex items-center gap-2 py-1 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors"
+                >
+                  <span>View Case Study</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </button>
+                <a
+                  href="https://github.com/Kiama808"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xs font-medium text-slate-400 hover:text-white transition-colors"
+                >
+                  github.com/Kiama808 &nearr;
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. TECHNICAL SKILLS & EDUCATION SECTION (#skills-education) ==================== -->
+    <section id="skills-education" class="scroll-mt-20 py-16 sm:py-20 border-b border-slate-800/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+
+          <!-- Left Column: Technical Skills -->
+          <div class="lg:col-span-7">
+            <p class="text-xs font-bold uppercase tracking-widest text-sky-400 mb-2">
+              Stack &amp; Tooling
+            </p>
+            <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white mb-8">
+              Technical Skills
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+              <!-- Category 1: Languages & Scripting -->
+              <div class="p-5 sm:p-6 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm">
+                <div class="flex items-center gap-2.5 mb-3.5">
+                  <span class="w-8 h-8 rounded-lg bg-sky-500/15 text-sky-400 flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                  </span>
+                  <h3 class="font-serif font-bold text-lg text-white">
+                    Languages &amp; Scripting
+                  </h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">Kotlin</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">JavaScript (ES6+)</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">HTML5</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">CSS3</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">XML</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">Google Apps Script</span>
+                </div>
+              </div>
+
+              <!-- Category 2: Mobile & Web Development -->
+              <div class="p-5 sm:p-6 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm">
+                <div class="flex items-center gap-2.5 mb-3.5">
+                  <span class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                      <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                  </span>
+                  <h3 class="font-serif font-bold text-lg text-white">
+                    Mobile &amp; Web Development
+                  </h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">Native Android Development (Android Studio, API 34)</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">Responsive Web Design</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">GitHub Pages</span>
+                </div>
+              </div>
+
+              <!-- Category 3: Tools & Environments -->
+              <div class="p-5 sm:p-6 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm">
+                <div class="flex items-center gap-2.5 mb-3.5">
+                  <span class="w-8 h-8 rounded-lg bg-purple-500/15 text-purple-400 flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <polyline points="4 17 10 11 4 5"></polyline>
+                      <line x1="12" y1="19" x2="20" y2="19"></line>
+                    </svg>
+                  </span>
+                  <h3 class="font-serif font-bold text-lg text-white">
+                    Tools &amp; Environments
+                  </h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">Git</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">GitHub</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">Visual Studio Code</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">Android Studio</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">NetBeans IDE</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">Windows Subsystem for Linux (WSL)</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">Windows</span>
+                </div>
+              </div>
+
+              <!-- Category 4: Automation & Core Strengths -->
+              <div class="p-5 sm:p-6 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm">
+                <div class="flex items-center gap-2.5 mb-3.5">
+                  <span class="w-8 h-8 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                    </svg>
+                  </span>
+                  <h3 class="font-serif font-bold text-lg text-white">
+                    Automation &amp; Core Strengths
+                  </h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">Google Sheets Automation</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">Live Market Data Integration</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">Automated HTML Email Reporting</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700/70">Technical Documentation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Education & Certifications -->
+          <div class="lg:col-span-5">
+            <p class="text-xs font-bold uppercase tracking-widest text-sky-400 mb-2">
+              Academic &amp; Technical Training
+            </p>
+            <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white mb-8">
+              Education &amp; Certifications
+            </h2>
+
+            <div class="space-y-4">
+              <!-- USIU-Africa -->
+              <div class="p-5 sm:p-6 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm">
+                <div class="flex items-start justify-between gap-3 mb-1.5">
+                  <h3 class="font-serif font-bold text-lg text-white leading-snug">
+                    United States International University - Africa (USIU-Africa) — Nairobi, Kenya
+                  </h3>
+                  <span class="px-3 py-0.5 rounded-full text-xs font-semibold bg-sky-500/15 text-sky-300 border border-sky-500/25 shrink-0">
+                    Ongoing
+                  </span>
+                </div>
+                <p class="text-sm font-medium text-slate-300">
+                  B.Sc. in Applied Computer Technology (Software Engineering)
+                </p>
+              </div>
+
+              <!-- Moringa School -->
+              <div class="p-5 sm:p-6 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm">
+                <div class="flex items-start justify-between gap-3 mb-1.5">
+                  <h3 class="font-serif font-bold text-lg text-white leading-snug">
+                    Moringa School — Nairobi, Kenya
+                  </h3>
+                  <span class="px-3 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/25 shrink-0">
+                    Graduated 2024
+                  </span>
+                </div>
+                <p class="text-sm font-medium text-slate-300">
+                  Software Engineering Coding Program
+                </p>
+              </div>
+
+              <!-- GOMYCODE x NMF Tech -->
+              <div class="p-5 sm:p-6 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm">
+                <div class="flex items-start justify-between gap-3 mb-1.5">
+                  <h3 class="font-serif font-bold text-lg text-white leading-snug">
+                    GOMYCODE x NMF Tech — Kenya
+                  </h3>
+                  <span class="px-3 py-0.5 rounded-full text-xs font-semibold bg-sky-500/15 text-sky-300 border border-sky-500/25 shrink-0">
+                    Ongoing
+                  </span>
+                </div>
+                <p class="text-sm font-medium text-slate-300">
+                  Digital Skills Scholarship Program
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. CONTACT & DIRECT LINKS SECTION (#contact) ==================== -->
+    <section id="contact" class="scroll-mt-20 py-16 sm:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12">
+          <p class="text-xs font-bold uppercase tracking-widest text-sky-400 mb-2">
+            Direct Channels
+          </p>
+          <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white mb-3">
+            Contact &amp; Direct Links
+          </h2>
+          <p class="text-slate-300 text-base max-w-2xl">
+            Reach out directly for software engineering roles, internships, mobile/web development collaborations, or project inquiries.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+          <!-- Left: Direct Clickable Contact Cards -->
+          <div class="lg:col-span-5 space-y-4">
+            <!-- Email Card -->
+            <div class="p-5 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm flex items-center justify-between gap-4">
+              <div class="min-w-0">
+                <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Email</p>
+                <a
+                  href="mailto:kelvinmurithi2005@gmail.com"
+                  class="text-sm sm:text-base font-semibold text-white hover:text-sky-400 truncate block transition-colors"
+                >
+                  kelvinmurithi2005@gmail.com
+                </a>
+              </div>
+              <button
+                type="button"
+                onclick="copyText('kelvinmurithi2005@gmail.com', 'Email address copied to clipboard!')"
+                class="px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-navy-800 text-slate-200 border border-slate-700 hover:bg-sky-500 hover:text-navy-950 hover:border-sky-500 transition-colors shrink-0"
+              >
+                Copy
+              </button>
+            </div>
+
+            <!-- Phone Card -->
+            <div class="p-5 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm flex items-center justify-between gap-4">
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Phone / WhatsApp</p>
+                <a
+                  href="tel:+254713522769"
+                  class="text-sm sm:text-base font-semibold text-white hover:text-sky-400 transition-colors"
+                >
+                  +254 713 522 769
+                </a>
+              </div>
+              <button
+                type="button"
+                onclick="copyText('+254 713 522 769', 'Phone number copied to clipboard!')"
+                class="px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-navy-800 text-slate-200 border border-slate-700 hover:bg-sky-500 hover:text-navy-950 hover:border-sky-500 transition-colors shrink-0"
+              >
+                Copy
+              </button>
+            </div>
+
+            <!-- GitHub Card -->
+            <div class="p-5 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm flex items-center justify-between gap-4">
+              <div class="min-w-0">
+                <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">GitHub</p>
+                <a
+                  href="https://github.com/Kiama808"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm sm:text-base font-semibold text-white hover:text-sky-400 truncate block transition-colors"
+                >
+                  github.com/Kiama808 &nearr;
+                </a>
+              </div>
+              <a
+                href="https://github.com/Kiama808"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-navy-800 text-slate-200 border border-slate-700 hover:bg-sky-500 hover:text-navy-950 hover:border-sky-500 transition-colors shrink-0"
+              >
+                Open
+              </a>
+            </div>
+
+            <!-- Location Card -->
+            <div class="p-5 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm flex items-center justify-between gap-4">
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Location</p>
+                <p class="text-sm sm:text-base font-semibold text-white">
+                  Nairobi, Kenya <span class="text-xs font-normal text-slate-400">(EAT / UTC+3)</span>
+                </p>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/25">
+                Remote &amp; On-Site
+              </span>
+            </div>
+          </div>
+
+          <!-- Right: Static-Friendly Contact Form -->
+          <div class="lg:col-span-7">
+            <form
+              id="contactForm"
+              novalidate
+              class="p-6 sm:p-8 rounded-2xl bg-navy-900 border border-slate-800 shadow-sm space-y-5"
+            >
+              <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <h3 class="font-serif font-bold text-xl text-white">
+                  Send a Direct Message
+                </h3>
+                <span class="text-xs text-slate-400">
+                  Static GitHub Pages Ready
+                </span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="senderName" class="block text-sm font-semibold text-slate-200 mb-1.5">
+                    Name <span class="text-rose-400">*</span>
+                  </label>
+                  <input
+                    id="senderName"
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="e.g. Jane Wanjiku"
+                    class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  />
+                </div>
+                <div>
+                  <label for="senderEmail" class="block text-sm font-semibold text-slate-200 mb-1.5">
+                    Email <span class="text-rose-400">*</span>
+                  </label>
+                  <input
+                    id="senderEmail"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="e.g. jane@company.co.ke"
+                    class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="messageSubject" class="block text-sm font-semibold text-slate-200 mb-1.5">
+                  Subject <span class="text-rose-400">*</span>
+                </label>
+                <input
+                  id="messageSubject"
+                  name="subject"
+                  type="text"
+                  required
+                  placeholder="e.g. Software Engineering Role Inquiry"
+                  class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                />
+              </div>
+
+              <div>
+                <label for="messageBody" class="block text-sm font-semibold text-slate-200 mb-1.5">
+                  Message <span class="text-rose-400">*</span>
+                </label>
+                <textarea
+                  id="messageBody"
+                  name="message"
+                  rows="4"
+                  required
+                  placeholder="Write your message, role details, or project inquiry here..."
+                  class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                ></textarea>
+              </div>
+
+              <!-- Inline Validation / Action Feedback Banner -->
+              <div id="formFeedback" class="hidden p-3.5 rounded-xl text-sm font-medium"></div>
+
+              <!-- Two Static-Friendly Submission Actions -->
+              <div class="flex flex-col sm:flex-row gap-3 pt-1">
+                <button
+                  type="submit"
+                  class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-sky-500 text-navy-950 font-semibold text-sm hover:bg-sky-400 shadow-sm transition-all"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                  <span>Open in Email App</span>
+                </button>
+
+                <button
+                  type="button"
+                  id="copyMessageBtn"
+                  class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-navy-800 text-slate-200 border border-slate-700 font-semibold text-sm hover:bg-navy-850 hover:text-white transition-all"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span>Copy Formatted Message</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-slate-800/80 bg-navy-950 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+      <p>
+        &copy; 2026 <span class="font-semibold text-slate-200">Kelvin Kiama Muriithi</span>. All rights reserved.
+      </p>
+      <div class="flex flex-wrap items-center gap-5">
+        <a href="https://github.com/Kiama808" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
+        <a href="mailto:kelvinmurithi2005@gmail.com" class="hover:text-white transition-colors">Email</a>
+        <a href="tel:+254713522769" class="hover:text-white transition-colors">Phone</a>
+        <a href="#top" class="hover:text-white transition-colors">Back to Top &uarr;</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== CASE STUDY MODAL ==================== -->
+  <div
+    id="caseStudyModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-slate-950/80 backdrop-blur-sm"
+  >
+    <div class="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-navy-900 border border-slate-700 shadow-2xl p-6 sm:p-8">
+      <!-- Modal Header -->
+      <div class="flex items-start justify-between gap-4 pb-4 border-b border-slate-800">
+        <div>
+          <div class="flex items-center gap-2.5 mb-2">
+            <span id="modalCategory" class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-sky-500/15 text-sky-300 border border-sky-500/25">
+              Web
+            </span>
+            <span id="modalDate" class="text-xs font-medium text-slate-400">
+              2026
+            </span>
+          </div>
+          <h3 id="modalTitle" class="font-serif font-bold text-2xl sm:text-3xl text-white">
+            Project Title
+          </h3>
+        </div>
+        <button
+          type="button"
+          onclick="closeCaseStudy()"
+          aria-label="Close Case Study Modal"
+          class="p-2.5 rounded-xl bg-navy-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-colors"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="py-5 space-y-5 text-sm sm:text-base text-slate-300 leading-relaxed">
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1.5">
+            Problem
+          </h4>
+          <p id="modalProblem"></p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1.5">
+            Architecture &amp; Implementation
+          </h4>
+          <p id="modalArchitecture"></p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+            Tech Stack
+          </h4>
+          <div id="modalTags" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-2">
+            Key Outcomes
+          </h4>
+          <ul id="modalOutcomes" class="list-disc pl-5 space-y-1.5"></ul>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
+        <a
+          href="https://github.com/Kiama808"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-sky-500 text-navy-950 font-semibold text-sm hover:bg-sky-400 transition-colors"
+        >
+          <span>View on GitHub (github.com/Kiama808)</span>
+          <span>&nearr;</span>
+        </a>
+        <button
+          type="button"
+          onclick="closeCaseStudy()"
+          class="px-4 py-2.5 rounded-xl bg-navy-800 text-slate-200 border border-slate-700 font-semibold text-sm hover:bg-slate-700 transition-colors"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div
+    id="toast"
+    role="status"
+    aria-live="polite"
+    class="fixed bottom-5 right-5 z-50 pointer-events-none opacity-0 translate-y-3 transition-all duration-300"
+  >
+    <div class="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-sky-500 text-navy-950 font-semibold text-sm shadow-xl border border-sky-300">
+      <svg class="w-4 h-4 shrink-0 text-navy-950" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+      <span id="toastMessage">Copied to clipboard!</span>
+    </div>
+  </div>
+
+  <!-- ==================== INTERACTIVE JAVASCRIPT ==================== -->
+  <script>
+    // 1. Mobile Navigation Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOpenIcon = document.getElementById('menuOpenIcon');
+    const menuCloseIcon = document.getElementById('menuCloseIcon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
+      menuOpenIcon.classList.toggle('hidden', !isHidden);
+      menuCloseIcon.classList.toggle('hidden', isHidden);
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        menuOpenIcon.classList.remove('hidden');
+        menuCloseIcon.classList.add('hidden');
+      });
+    });
+
+    // 2. One-Click Clipboard Copy Helper (using execCommand for full iFrame & static compatibility)
+    let toastTimer = null;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+      toastMessage.textContent = message;
+      toast.classList.remove('opacity-0', 'translate-y-3');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-3');
+      }, 2600);
+    }
+
+    function copyText(text, successMsg) {
+      try {
+        const tempInput = document.createElement('textarea');
+        tempInput.value = text;
+        tempInput.setAttribute('readonly', '');
+        tempInput.style.position = 'fixed';
+        tempInput.style.left = '-9999px';
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        showToast(successMsg || 'Copied to clipboard!');
+      } catch (err) {
+        showToast('Unable to copy automatically. Please copy manually.');
+      }
+    }
+
+    // 3. Filterable Software Engineering Projects
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const selectedCategory = btn.getAttribute('data-filter');
+
+        filterButtons.forEach((b) => {
+          b.classList.remove('active', 'bg-sky-500', 'text-navy-950', 'shadow-sm');
+          b.classList.add('text-slate-300');
+        });
+        btn.classList.add('active', 'bg-sky-500', 'text-navy-950', 'shadow-sm');
+        btn.classList.remove('text-slate-300');
+
+        projectCards.forEach((card) => {
+          const cardCategory = card.getAttribute('data-category');
+          if (selectedCategory === 'All' || cardCategory === selectedCategory) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // 4. Interactive Project Case Studies Data & Modal Logic
+    const caseStudies = {
+      'governor-creek': {
+        category: 'Web',
+        date: '2026',
+        title: 'The Governor Creek School Web Platform',
+        problem:
+          'The Governor Creek School in Kajiweni-Mshomoroni, Mombasa lacked a unified, modern digital presence capable of clearly serving three distinct stakeholder groups: prospective parents, NGOs, and institutional investors.',
+        architecture:
+          'Architected a responsive, multi-audience web portal built with semantic HTML5, CSS3, and vanilla JavaScript, hosted on GitHub Pages with serverless form routing for Admissions, Academics, Partnerships, and Contact inquiries.',
+        tags: ['HTML5', 'CSS3', 'JavaScript', 'GitHub Pages'],
+        outcomes: [
+          'Delivered a unified institutional portal tailored for fast mobile browsing across Kenyan networks.',
+          'Streamlined multi-audience admissions and partnership inquiries without recurring server or hosting costs.',
+          'Established structured, conversion-focused user journeys across school departments.'
+        ]
+      },
+      'nse-tracker': {
+        category: 'Automation',
+        date: 'May 2026',
+        title: 'Automated NSE Stock Portfolio Tracker',
+        problem:
+          'Manually monitoring Nairobi Securities Exchange (NSE) share price movements and calculating portfolio valuation changes across multiple holdings was time-consuming and prone to manual entry errors.',
+        architecture:
+          'Engineered an automated data pipeline using Google Apps Script integrated with Google Sheets to fetch live NSE equity prices, compute portfolio gain/loss metrics, and dispatch formatted weekly HTML performance reports via time-driven triggers.',
+        tags: ['Google Apps Script', 'Google Sheets', 'HTML'],
+        outcomes: [
+          'Eliminated manual price lookups through automated live NSE market data ingestion.',
+          'Delivered clean, scheduled weekly HTML email summaries detailing portfolio valuation changes.',
+          'Maintained a reliable, zero-cost cloud ledger inside Google Sheets.'
+        ]
+      },
+      'android-calculator': {
+        category: 'Android',
+        date: 'August – September 2026',
+        title: 'Native Android Shopping & Unit Price Calculator',
+        problem:
+          'Evaluating true unit value across differing retail package sizes while keeping track of a cumulative shopping total in-store is difficult without dedicated calculation tools.',
+        architecture:
+          'Developed a native Android utility application in Kotlin and XML inside Android Studio (compiled against API 34), implementing real-time unit price normalization, strict numeric input validation, and dynamic basket summation.',
+        tags: ['Kotlin', 'XML', 'Android Studio API 34'],
+        outcomes: [
+          'Enabled instant unit-price comparisons across varying package weights and volumes.',
+          'Prevented invalid input crashes through defensive validation in Kotlin.',
+          'Built responsive XML layouts designed for quick, one-handed in-store use.'
+        ]
+      },
+      'neon-buzz': {
+        category: 'Web',
+        date: 'May – November 2026',
+        title: 'Interactive Browser Apps & Audio-Visualizers — NEON BUZZ',
+        problem:
+          'Creating engaging, mobile-first social games and music-reactive visualizers in the browser without external audio assets or heavy framework overhead.',
+        architecture:
+          'Built stateful pass-and-play turn management and live leaderboards in JavaScript, paired with real-time synthesized sound effects via the Web Audio API and frame-accurate pixel-art animations rendered on HTML5 Canvas.',
+        tags: ['JavaScript', 'HTML5 Canvas', 'Web Audio API'],
+        outcomes: [
+          'Shipped mobile-first interactive gameplay with zero external audio file dependencies.',
+          'Synchronized dynamic HTML5 Canvas pixel-art visuals directly to audio playback.',
+          'Implemented persistent session state and responsive touch controls across screen sizes.'
+        ]
+      }
+    };
+
+    const modal = document.getElementById('caseStudyModal');
+
+    function openCaseStudy(projectId) {
+      const data = caseStudies[projectId];
+      if (!data) return;
+
+      document.getElementById('modalCategory').textContent = data.category;
+      document.getElementById('modalDate').textContent = data.date;
+      document.getElementById('modalTitle').textContent = data.title;
+      document.getElementById('modalProblem').textContent = data.problem;
+      document.getElementById('modalArchitecture').textContent = data.architecture;
+
+      const tagsContainer = document.getElementById('modalTags');
+      tagsContainer.innerHTML = '';
+      data.tags.forEach((tag) => {
+        const span = document.createElement('span');
+        span.className = 'px-2.5 py-1 rounded-lg text-xs font-medium bg-navy-800 text-slate-200 border border-slate-700';
+        span.textContent = tag;
+        tagsContainer.appendChild(span);
+      });
+
+      const outcomesList = document.getElementById('modalOutcomes');
+      outcomesList.innerHTML = '';
+      data.outcomes.forEach((item) => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        outcomesList.appendChild(li);
+      });
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCaseStudy() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeCaseStudy();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeCaseStudy();
+      }
+    });
+
+    // 5. Static-Friendly Contact Form Handling (Mailto + Clipboard Copy)
+    const contactForm = document.getElementById('contactForm');
+    const copyMessageBtn = document.getElementById('copyMessageBtn');
+    const formFeedback = document.getElementById('formFeedback');
+
+    function validateContactForm() {
+      const name = document.getElementById('senderName').value.trim();
+      const email = document.getElementById('senderEmail').value.trim();
+      const subject = document.getElementById('messageSubject').value.trim();
+      const message = document.getElementById('messageBody').value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!name || !email || !subject || !message) {
+        return { valid: false, error: 'Please complete all required fields before sending or copying.' };
+      }
+      if (!emailRegex.test(email)) {
+        return { valid: false, error: 'Please enter a valid email address.' };
+      }
+      return { valid: true, data: { name, email, subject, message } };
+    }
+
+    function showFormFeedback(text, isError) {
+      formFeedback.textContent = text;
+      formFeedback.classList.remove(
+        'hidden',
+        'bg-rose-500/15',
+        'text-rose-300',
+        'border-rose-500/30',
+        'bg-emerald-500/15',
+        'text-emerald-300',
+        'border-emerald-500/30'
+      );
+      formFeedback.classList.add('border');
+      if (isError) {
+        formFeedback.classList.add('bg-rose-500/15', 'text-rose-300', 'border-rose-500/30');
+      } else {
+        formFeedback.classList.add('bg-emerald-500/15', 'text-emerald-300', 'border-emerald-500/30');
+      }
+    }
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const result = validateContactForm();
+      if (!result.valid) {
+        showFormFeedback(result.error, true);
+        return;
+      }
+
+      const { name, email, subject, message } = result.data;
+      const formattedBody = `Hi Kelvin,\n\n${message}\n\nBest regards,\n${name}\n(${email})`;
+      const mailtoUrl = `mailto:kelvinmurithi2005@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(formattedBody)}`;
+
+      showFormFeedback('Opening your email application with your pre-filled message...', false);
+      window.location.href = mailtoUrl;
+    });
+
+    copyMessageBtn.addEventListener('click', () => {
+      const result = validateContactForm();
+      if (!result.valid) {
+        showFormFeedback(result.error, true);
+        return;
+      }
+
+      const { name, email, subject, message } = result.data;
+      const clipboardPayload = `To: kelvinmurithi2005@gmail.com\nSubject: ${subject}\nFrom: ${name} (${email})\n\n${message}`;
+      copyText(clipboardPayload, 'Formatted message copied to clipboard!');
+      showFormFeedback('Formatted message copied! Paste it into any email app to send to kelvinmurithi2005@gmail.com.', false);
+    });
+  </script>
+</body>
+</html>
